@@ -1,5 +1,5 @@
 import express from 'express';
-import formats from '../src/controllers/formats.js';
+import formats from '../controllers/formats.js';
 
 const routes = express.Router();
 

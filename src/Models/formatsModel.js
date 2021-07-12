@@ -10,7 +10,6 @@ export default db.define('formats', {
   },
   formato: {
     type: Sequelize.STRING,
-    autoIncrement: true,
     allowNull: false,
   },
 });
