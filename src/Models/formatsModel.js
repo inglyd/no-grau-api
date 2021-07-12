@@ -1,7 +1,7 @@
-import { Sequelize } from "sequelize";
-import db from "../db.js";
+import { Sequelize } from 'sequelize';
+import db from '../database.js';
 
-export default db.define("formats", {
+export default db.define('formats', {
   id: {
     type: Sequelize.INTEGER.UNSIGNED,
     primaryKey: true,
@@ -10,6 +10,7 @@ export default db.define("formats", {
   },
   formato: {
     type: Sequelize.STRING,
+    autoIncrement: true,
     allowNull: false,
   },
 });
