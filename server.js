@@ -1,5 +1,5 @@
 import express from 'express';
-import routes from './src/routes/formats.routes.js';
+import routes from './src/routes/colors.routes.js';
 import db from './src/database.js';
 
 const app = express();
