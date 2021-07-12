@@ -13,6 +13,7 @@ app.use(routesFormats);
 app.use(routesColor);
 app.use(routesImage);
 app.use(routesMaterials);
+app.use(routesProducts);
 
 db.sync(() => console.log(`Banco de dados conectado: ${process.env.DB_NAME}`));
 
