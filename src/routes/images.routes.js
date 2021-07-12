@@ -1,8 +1,8 @@
 import express from 'express';
 import images from '../controllers/images.js';
 
-const routes = express.Router();
+const routesImage = express.Router();
 
-routes.get('/images', images.findAll);
+routesImage.get('/images', images.findAll);
 
-export { routes as default };
+export { routesImage as default };

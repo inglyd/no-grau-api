@@ -1,8 +1,8 @@
 import express from 'express';
 import formats from '../controllers/formats.js';
 
-const routes = express.Router();
+const routesFormats = express.Router();
 
-routes.get('/formats', formats.findAll);
+routesFormats.get('/formats', formats.findAll);
 
-export { routes as default };
+export { routesFormats as default };

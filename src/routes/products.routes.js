@@ -1,8 +1,8 @@
 import express from 'express';
 import products from '../controllers/products.js';
 
-const routes = express.Router();
+const routesProducts = express.Router();
 
-routes.get('/products', products.findAll);
+routesProducts.get('/products', products.findAll);
 
-export { routes as default };
+export { routesProducts as default };

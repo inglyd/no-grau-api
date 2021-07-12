@@ -1,8 +1,8 @@
 import express from 'express';
 import materials from '../controllers/materials.js';
 
-const routes = express.Router();
+const routesMaterials = express.Router();
 
-routes.get('/materials', materials.findAll);
+routesMaterials.get('/materials', materials.findAll);
 
-export { routes as default };
+export { routesMaterials as default };

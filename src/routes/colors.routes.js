@@ -1,8 +1,8 @@
 import express from 'express';
 import colors from '../controllers/colors.js';
 
-const routes = express.Router();
+const routesColor = express.Router();
 
-routes.get('/colors', colors.findAll);
+routesColor.get('/colors', colors.findAll);
 
-export { routes as default };
+export { routesColor as default };

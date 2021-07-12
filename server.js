@@ -1,11 +1,18 @@
 import express from 'express';
-import routes from './src/routes/colors.routes.js';
+import routesFormats from './src/routes/formats.routes.js';
+import routesColor from './src/routes/colors.routes.js';
+import routesImage from './src/routes/images.routes.js';
+import routesMaterials from './src/routes/materials.routes.js';
+import routesProducts from './src/routes/products.routes.js';
 import db from './src/database.js';
 
 const app = express();
 
 app.use(express.json());
-app.use(routes);
+app.use(routesFormats);
+app.use(routesColor);
+app.use(routesImage);
+app.use(routesMaterials);
 
 db.sync(() => console.log(`Banco de dados conectado: ${process.env.DB_NAME}`));
 
