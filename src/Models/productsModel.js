@@ -12,13 +12,9 @@ export default db.define('products', {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  imageId: {
-    type: Sequelize.INTEGER.UNSIGNED,
+  imageUrl: {
+    type: Sequelize.STRING,
     allowNull: false,
-    references: {
-      model: 'images',
-      key: 'id',
-    },
   },
   formatId: {
     type: Sequelize.INTEGER.UNSIGNED,
