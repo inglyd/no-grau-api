@@ -5,4 +5,6 @@ const routesProducts = express.Router();
 
 routesProducts.get('/products', products.findAll);
 
+routesProducts.get('/products/:id', products.findById);
+
 export { routesProducts as default };

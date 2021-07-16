@@ -5,4 +5,14 @@ async function findAll(req, res) {
   res.json(products);
 }
 
-export default { findAll };
+async function findById(req, res) {
+  const id = req.params.id;
+  const product = await Product.findByPk(id);
+  if (product) {
+    res.json(product);
+  } else {
+    res.status(404).json({ error: 'Produto não existe.' });
+  }
+}
+
+export default { findAll, findById };
