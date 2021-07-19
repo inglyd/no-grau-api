@@ -5,4 +5,6 @@ const routesMaterials = express.Router();
 
 routesMaterials.get('/materials', materials.findAll);
 
+routesMaterials.get('/materials/:id', materials.findById);
+
 export { routesMaterials as default };

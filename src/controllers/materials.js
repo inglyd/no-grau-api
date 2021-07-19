@@ -5,4 +5,14 @@ async function findAll(req, res) {
   res.json(materials);
 }
 
-export default { findAll };
+async function findById(req, res) {
+  const id = req.params.id;
+  const material = await Material.findByPk(id);
+  if (material) {
+    res.json(material);
+  } else {
+    res.status(404).json({ error: 'Falha na busca do material.' });
+  }
+}
+
+export default { findAll, findById };
