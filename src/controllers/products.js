@@ -15,25 +15,76 @@ async function findById(req, res) {
   }
 }
 
-async function update(req, res) {
-  if (!req.body.nome) {
-    return res.status(400).send({ message: 'Por favor, preencha os campos vazios'})
-  } 
-  product.findByIdAndUpdate(req.params.id, {
-    nome: req.body.nome,
-    formatId: req.body.formatId,
-    materialId: req.body.materialId,
-    colorId: req.body.colorId,
-  }, { new: true })
-  .then((product) => {
-    if(!product) {
-      res.status(404).send({ message: 'Produto não encontrado'})
+async function create(req, res) {
+  try {
+    const { name, description, imageUrl, formatId, materialId, colorId } =
+      req.body;
+    if (
+      name === '' ||
+      description === '' ||
+      imageUrl === '' ||
+      formatId === '' ||
+      materialId === '' ||
+      colorId === ''
+    )
+      return res.status(400).json({ message: 'Preencha todos os campos.' });
+    else {
+      const product = await Product.create({
+        name,
+        description,
+        imageUrl,
+        formatId,
+        materialId,
+        colorId,
+      });
+      return res.status(201).json(product);
     }
-    res.status(200).send({ message: 'Produto atualizado!'})
-  }).catch((err) => {
-if (err.kind === 'ObjId') {
-  return res.status(404).send ({ message: 'Erro ao encontrar o Id do produto'})
-}})
-    }
+  } catch (err) {
+    return res.status(404).json({ message: err.message });
+  }
+}
 
-export default { findAll, findById, update };
+async function update(req, res) {
+  const { name, description, imageUrl, formatId, materialId, colorId } =
+    req.body;
+  if (
+    name === '' ||
+    description === '' ||
+    imageUrl === '' ||
+    formatId === '' ||
+    materialId === '' ||
+    colorId === ''
+  ) {
+    return res
+      .status(400)
+      .send({ message: 'Por favor, preencha os campos vazios' });
+  }
+  product
+    .findByIdAndUpdate(
+      req.params.id,
+      {
+        name,
+        description,
+        imageUrl,
+        formatId,
+        materialId,
+        colorId,
+      },
+      { new: true },
+    )
+    .then((product) => {
+      if (!product) {
+        res.status(404).send({ message: 'Produto não encontrado' });
+      }
+      res.status(200).send({ message: 'Produto atualizado!' });
+    })
+    .catch((err) => {
+      if (err.kind === 'ObjId') {
+        return res
+          .status(404)
+          .send({ message: 'Erro ao encontrar o Id do produto' });
+      }
+    });
+}
+
+export default { findAll, findById, create, update };
