@@ -1,17 +1,25 @@
 import Product from '../models/productsModel.js';
 
 async function findAll(req, res) {
-  const products = await Product.findAll();
-  res.json(products);
+  try {
+    const products = await Product.findAll();
+    res.json(products);
+  } catch (err) {
+    return res.status(400).json({ message: err.message });
+  }
 }
 
 async function findById(req, res) {
-  const id = req.params.id;
-  const product = await Product.findByPk(id);
-  if (product) {
-    res.json(product);
-  } else {
-    res.status(404).json({ error: 'Produto não existe.' });
+  try {
+    const id = req.params.id;
+    const product = await Product.findByPk(id);
+    if (product) {
+      res.json(product);
+    } else {
+      res.status(404).json({ message: 'Produto não existe.' });
+    }
+  } catch (err) {
+    return res.status(400).json({ message: err.message });
   }
 }
 
@@ -45,9 +53,7 @@ async function create(req, res) {
 }
 
 async function update(req, res) {
-  const { name, description, imageUrl, formatId, materialId, colorId } =
-    req.body;
-  if (!name) {
+  if (!req.body.nome) {
     return res
       .status(400)
       .send({ message: 'Por favor, preencha os campos vazios' });
@@ -56,12 +62,11 @@ async function update(req, res) {
     .findByIdAndUpdate(
       req.params.id,
       {
-        name,
-        description,
-        imageUrl,
-        formatId,
-        materialId,
-        colorId,
+        name: req.body.name,
+        description: req.body.description,
+        formatId: req.body.formatId,
+        materialId: req.body.materialId,
+        colorId: req.body.colorId,
       },
       { new: true },
     )
