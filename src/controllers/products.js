@@ -15,4 +15,27 @@ async function findById(req, res) {
   }
 }
 
-export default { findAll, findById };
+async function update(req, res) {
+  if (!req.body.nome) {
+    return res.status(400).send({ message: 'Por favor, preencha os campos vazios'})
+  } 
+  product.findByIdAndUpdate(req.params.id, {
+    nome: req.body.nome,
+    formatId: req.body.formatId,
+    materialId: req.body.materialId,
+    colorId: req.body.colorId,
+  }, { new: true })
+  .then((product) => {
+    if(!product) {
+      res.status(404).send({ message: 'Produto não encontrado'})
+    }
+    res.status(200).send({ message: 'Produto atualizado!'})
+  }).catch((err) => {
+if (err.kind === 'ObjectId') {
+  return res.status(404).send ({ message: 'Erro ao encontrar o Id do produto'})
+}})
+    }
+
+
+
+export default { findAll, findById, update };
