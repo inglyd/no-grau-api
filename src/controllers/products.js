@@ -85,4 +85,16 @@ async function update(req, res) {
     });
 }
 
-export default { findAll, findById, create, update };
+async function remove(req, res) {
+  try {
+    const { id } = req.params;
+    const product = await Product.findByPk(id);
+    if (!product) res.status(404).json({ message: 'Produto não existe.' });
+    product.destroy({ where: { id: req.params.id } });
+    return res.status(200).json({ message: 'Produto deletado com sucesso.' });
+  } catch (err) {
+    return res.status(400).json({ message: err.message });
+  }
+}
+
+export default { findAll, findById, create, update, remove };
