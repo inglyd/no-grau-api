@@ -3,6 +3,6 @@ import formats from '../controllers/formats.js';
 
 const routesFormats = express.Router();
 
-routesFormats.post('/formats', formats.findAll);
+routesFormats.get('/formats', formats.findAll);
 
 export { routesFormats as default };
