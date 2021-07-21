@@ -31,11 +31,9 @@ async function update(req, res) {
     }
     res.status(200).send({ message: 'Produto atualizado!'})
   }).catch((err) => {
-if (err.kind === 'ObjectId') {
+if (err.kind === 'ObjId') {
   return res.status(404).send ({ message: 'Erro ao encontrar o Id do produto'})
 }})
     }
-
-
 
 export default { findAll, findById, update };
