@@ -7,4 +7,6 @@ routesProducts.get('/products', products.findAll);
 routesProducts.get('/products/:id', products.findById);
 routesProducts.put('/products/:id', products.update);
 
-export { routesProducts as default };
+export { routesProducts as default }; 
+
+// 
