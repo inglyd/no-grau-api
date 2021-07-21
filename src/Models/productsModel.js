@@ -8,7 +8,11 @@ export default db.define('products', {
     autoIncrement: true,
     allowNull: false,
   },
-  nome: {
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  description: {
     type: Sequelize.STRING,
     allowNull: false,
   },
