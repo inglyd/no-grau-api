@@ -5,4 +5,4 @@ async function findAll(req, res) {
   res.json(materials);
 }
 
-export default { findAll, findById };
+export default { findAll };
