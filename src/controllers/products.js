@@ -47,14 +47,7 @@ async function create(req, res) {
 async function update(req, res) {
   const { name, description, imageUrl, formatId, materialId, colorId } =
     req.body;
-  if (
-    name === '' ||
-    description === '' ||
-    imageUrl === '' ||
-    formatId === '' ||
-    materialId === '' ||
-    colorId === ''
-  ) {
+  if (!name) {
     return res
       .status(400)
       .send({ message: 'Por favor, preencha os campos vazios' });
