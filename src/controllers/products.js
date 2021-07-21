@@ -53,7 +53,7 @@ async function create(req, res) {
 }
 
 async function update(req, res) {
-  if (!req.body.nome) {
+  if (!req.body.name) {
     return res
       .status(400)
       .send({ message: 'Por favor, preencha os campos vazios' });
@@ -64,6 +64,7 @@ async function update(req, res) {
       {
         name: req.body.name,
         description: req.body.description,
+        imageUrl: req.body.imageUrl,
         formatId: req.body.formatId,
         materialId: req.body.materialId,
         colorId: req.body.colorId,
