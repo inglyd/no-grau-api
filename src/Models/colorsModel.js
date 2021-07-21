@@ -8,7 +8,7 @@ export default db.define('colors', {
     autoIncrement: true,
     allowNull: false,
   },
-  nome: {
+  color: {
     type: Sequelize.STRING,
     allowNull: false,
   },

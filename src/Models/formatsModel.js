@@ -8,7 +8,7 @@ export default db.define('formats', {
     autoIncrement: true,
     allowNull: false,
   },
-  formato: {
+  format: {
     type: Sequelize.STRING,
     allowNull: false,
   },

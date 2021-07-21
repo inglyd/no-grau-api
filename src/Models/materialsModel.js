@@ -8,7 +8,7 @@ export default db.define('materials', {
     autoIncrement: true,
     allowNull: false,
   },
-  nome: {
+  material: {
     type: Sequelize.STRING,
     allowNull: false,
   },
