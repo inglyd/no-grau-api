@@ -16,38 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `products`
---
-
-DROP TABLE IF EXISTS `products`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `products` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `imageUrl` varchar(255) NOT NULL,
-  `formatId` int unsigned NOT NULL,
-  `materialId` int unsigned NOT NULL,
-  `colorId` int unsigned NOT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `formatId` (`formatId`),
-  KEY `materialId` (`materialId`),
-  KEY `colorId` (`colorId`),
-  CONSTRAINT `products_ibfk_1` FOREIGN KEY (`formatId`) REFERENCES `formats` (`id`),
-  CONSTRAINT `products_ibfk_2` FOREIGN KEY (`materialId`) REFERENCES `materials` (`id`),
-  CONSTRAINT `products_ibfk_3` FOREIGN KEY (`colorId`) REFERENCES `colors` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `products`
 --
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,'teste','teste','https://image-tool.eotica.com.br/?d=eo&w={width}&q=75&f=catalog/product/l/e/lema21_tim___tartatuga___c1_48_0_1.jpg',1,1,1,'2021-07-21 22:11:54','2021-07-21 22:11:54');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-21 19:05:04
+-- Dump completed on 2021-07-22 12:10:44
