@@ -49,41 +49,29 @@ async function create(req, res) {
     }
   } catch (err) {
     return res.status(404).json({ message: err.message });
-  }
+  } 
 }
 
 async function update(req, res) {
-  if (!req.body.name) {
-    return res
-      .status(400)
-      .send({ message: 'Por favor, preencha os campos vazios' });
-  }
-  product
-    .findByIdAndUpdate(
-      req.params.id,
-      {
-        name: req.body.name,
-        description: req.body.description,
-        imageUrl: req.body.imageUrl,
-        formatId: req.body.formatId,
-        materialId: req.body.materialId,
-        colorId: req.body.colorId,
-      },
-      { new: true },
-    )
-    .then((product) => {
-      if (!product) {
-        res.status(404).send({ message: 'Produto não encontrado' });
-      }
-      res.status(200).send({ message: 'Produto atualizado!' });
-    })
-    .catch((err) => {
-      if (err.kind === 'ObjId') {
-        return res
-          .status(404)
-          .send({ message: 'Erro ao encontrar o Id do produto' });
-      }
+try {
+  const { id } = req.params;
+  const { name, description, imageUrl, formatId, matarialId, colorId } = req.body;
+  const productId = await Model.findByPk(id);
+  if (!productId || productId == null)
+    throw new Error ('Produto não cadastrado.');
+
+    const updateProduct = await Product.update(
+     {
+      name, description, imageUrl, formatId, matarialId, colorId
+     },
+     { where: { id }}
+    );
+    return res.status(200).json({ 
+      message: 'Produto atualizado!'
     });
+  } catch (err) {
+    return res.status(400).json({ message: 'Produto não encontrado.' });
+  }
 }
 
 async function remove(req, res) {
