@@ -3,6 +3,6 @@ import colors from '../controllers/colors.js';
 
 const routesColor = express.Router();
 
-routesColor.get('/colors', colors.findAll);
+routesColor.get('/colors', /* #swagger.tags = ['Colors'], */ colors.findAll);
 
 export { routesColor as default };

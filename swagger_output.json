@@ -1,0 +1,237 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "REST API",
+      "description": ""
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [],
+    "schemes": [
+      "http"
+    ],
+    "consumes": [],
+    "produces": [],
+    "paths": {
+      "/colors": {
+        "get": {
+          "tags": [
+            "Colors"
+          ],
+          "description": "",
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/formats": {
+        "get": {
+          "tags": [
+            "Formats"
+          ],
+          "description": "",
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/materials": {
+        "get": {
+          "tags": [
+            "Materials"
+          ],
+          "description": "",
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "\r/products": {
+        "get": {
+          "tags": [
+            "Products"
+          ],
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Products"
+          ],
+          "description": "",
+          "parameters": [
+            {
+              "name": "post products object",
+              "in": "body",
+              "description": "New products values",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "new product"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "product"
+                  },
+                  "url_image": {
+                    "type": "string",
+                    "example": "productUrl.com"
+                  },
+                  "id_format": {
+                    "type": "string",
+                    "example": "cat-eye"
+                  },
+                  "id_material": {
+                    "type": "string",
+                    "example": "acrylic"
+                  },
+                  "id_color": {
+                    "type": "string",
+                    "example": "black"
+                  }
+                },
+                "required": [
+                  "name",
+                  "description",
+                  "url_image",
+                  "id_format",
+                  "id_material",
+                  "id_color"
+                ]
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "400": {
+              "description": "Bad Request"
+            },
+            "404": {
+              "description": "Not Found"
+            }
+          }
+        }
+      },
+      "/products/{id}": {
+        "get": {
+          "tags": [],
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Bad Request"
+            },
+            "404": {
+              "description": "Not Found"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Products"
+          ],
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request"
+            },
+            "404": {
+              "description": "Not Found"
+            }
+          }
+        }
+      },
+      "\r/products/{id}": {
+        "put": {
+          "tags": [
+            "Products"
+          ],
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "post products object",
+              "in": "body",
+              "description": "New products values",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "update product"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "update description"
+                  },
+                  "url_image": {
+                    "type": "string",
+                    "example": "update.com"
+                  },
+                  "id_format": {
+                    "type": "string",
+                    "example": "cat-eye"
+                  },
+                  "id_material": {
+                    "type": "string",
+                    "example": "metal"
+                  },
+                  "id_color": {
+                    "type": "string",
+                    "example": "black"
+                  }
+                },
+                "required": [
+                  "name",
+                  "description",
+                  "url_image",
+                  "id_format",
+                  "id_material",
+                  "id_color"
+                ]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {}
+  }
