@@ -1,4 +1,2 @@
 node_modules
 .env
-swagger.js
-swagger_output.json
