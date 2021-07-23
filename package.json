@@ -6,8 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server",
-    "swagger-autogen": "node swagger.js"
+    "start": "nodemon server"
   },
   "author": "",
   "license": "ISC",
@@ -16,12 +15,10 @@
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.12",
-    "sequelize": "^6.6.5",
-    "swagger-ui-express": "^4.1.6"
+    "sequelize": "^6.6.5"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
-    "eslint": "^7.30.0",
-    "swagger-autogen": "^2.9.1"
+    "eslint": "^7.30.0"
   }
 }
