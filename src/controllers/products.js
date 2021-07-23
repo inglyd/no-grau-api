@@ -55,14 +55,14 @@ async function create(req, res) {
 async function update(req, res) {
 try {
   const { id } = req.params;
-  const { name, description, imageUrl, formatId, matarialId, colorId } = req.body;
+  const { name, description, imageUrl, formatId, materialId, colorId } = req.body;
   const productId = await Product.findByPk(id);
   if (!productId || productId == null)
     throw new Error ('Produto não cadastrado.');
 
     const updateProduct = await Product.update(
      {
-      name, description, imageUrl, formatId, matarialId, colorId
+      name, description, imageUrl, formatId, materialId, colorId
      },
      { where: { id }}
     );
