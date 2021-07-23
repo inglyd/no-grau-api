@@ -56,7 +56,7 @@ async function update(req, res) {
 try {
   const { id } = req.params;
   const { name, description, imageUrl, formatId, materialId, colorId } = req.body;
-  const productId = await Product.findByPk(id);
+const productId = await Product.findByPk(id);  
   if (!productId || productId == null)
     throw new Error ('Produto não cadastrado.');
 
