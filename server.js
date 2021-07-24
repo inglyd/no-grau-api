@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(
     '/api-docs',
     (req, res, next) => {
-      swaggerDocument.host = req.get('host');
+      swaggerDocument.host = req.get('host')
       req.swaggerDoc = swaggerDocument;
       next();
     },
