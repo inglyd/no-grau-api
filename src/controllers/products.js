@@ -1,4 +1,4 @@
-import Product from '../models/productsModel.js';
+import Product from '../Models/productsModel.js';
 
 async function findAll(req, res) {
   try {

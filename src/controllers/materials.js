@@ -1,4 +1,4 @@
-import Material from '../models/materialsModel.js';
+import Material from '../Models/materialsModel.js';
 
 async function findAll(req, res) {
   const materials = await Material.findAll();

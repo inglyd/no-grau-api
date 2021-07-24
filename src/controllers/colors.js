@@ -1,4 +1,4 @@
-import Color from '../models/colorsModel.js';
+import Color from '../Models/colorsModel.js';
 
 async function findAll(req, res) {
   const colors = await Color.findAll();
