@@ -49,25 +49,31 @@ async function create(req, res) {
     }
   } catch (err) {
     return res.status(404).json({ message: err.message });
-  } 
+  }
 }
 
 async function update(req, res) {
-try {
-  const { id } = req.params;
-  const { name, description, imageUrl, formatId, materialId, colorId } = req.body;
-const productId = await Product.findByPk(id);  
-  if (!productId || productId == null)
-    throw new Error ('Produto não cadastrado.');
+  try {
+    const { id } = req.params;
+    const { name, description, imageUrl, formatId, materialId, colorId } =
+      req.body;
+    const productId = await Product.findByPk(id);
+    if (!productId || productId == null)
+      throw new Error('Produto não cadastrado.');
 
     const updateProduct = await Product.update(
-     {
-      name, description, imageUrl, formatId, materialId, colorId
-     },
-     { where: { id }}
+      {
+        name,
+        description,
+        imageUrl,
+        formatId,
+        materialId,
+        colorId,
+      },
+      { where: { id } },
     );
-    return res.status(200).json({ 
-      message: 'Produto atualizado!'
+    return res.status(200).json({
+      message: 'Produto atualizado!',
     });
   } catch (err) {
     return res.status(400).json({ message: 'Produto não encontrado.' });
