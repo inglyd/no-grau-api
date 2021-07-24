@@ -5,7 +5,7 @@ import routesMaterials from './src/routes/materials.routes.js';
 import routesProducts from './src/routes/products.routes.js';
 import db from './src/database.js';
 import swaggerUi from 'swagger-ui-express';
-import swaggerDocument from '../swagger_output.json';
+// import swaggerDocument from './swagger_output.json';
 
 const app = express();
 
