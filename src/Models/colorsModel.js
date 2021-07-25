@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize';
-import db from '../database.js';
+import db from '../../database.js';
 
 export default db.define('colors', {
   id: {
