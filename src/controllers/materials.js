@@ -8,5 +8,4 @@ async function findAll(req, res) {
   }
 }
 
-
 export default { findAll };
