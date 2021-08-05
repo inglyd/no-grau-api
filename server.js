@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import routesFormats from './src/routes/formats.routes.js';
 import routesColor from './src/routes/colors.routes.js';
 import routesMaterials from './src/routes/materials.routes.js';
@@ -7,7 +8,12 @@ import db from './src/database.js';
 import swaggerUi from 'swagger-ui-express';
 // import swaggerDocument from './swagger_output.json';
 
+
 const app = express();
+app.use((req, res, next) => {
+  app.use(cors());
+  next();
+})
 
 app.use(express.json());
 app.use(
