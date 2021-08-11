@@ -46,9 +46,14 @@ $ npx sequelize db:create # Criação do banco
 $ npx sequelize db:migrate # Criação das tabelas
     
 # Conexão com o banco de dados:
-# crie o arquivo .env para colocar as credenciais para conexão
-# Popule o banco de dados usando os aquivos da pasta "Models":
-$ npx sequelize db:Models:all 
+# Crie um arquivo .env na raíz do projeto e coloque os dados do seu banco de dados. 
+#Exemplo:
+#DB_NAME=nomedobanco
+#DB_USER=root
+#DB_PASSWORD=00000000
+#DB_HOST=localhost
+
+# Popule o banco de dados usando os arquivos da pasta "Models"
 # Rode a aplicação
 $ npm start
 ```
@@ -56,7 +61,7 @@ $ npm start
 ## ⚙️ Executando os testes
 
 ```sh
-npm run test
+node server.js
 ```
 
 ## 📌 Versão
